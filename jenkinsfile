@@ -1,14 +1,29 @@
 pipeline {
-    agent any
+    agent 
+    {
+        docker{image 'python'}
+    } 
 
 
-    stages {
-        stage('preparations') {
-            steps {
+    stages 
+    {
+        stage('preparations') 
+        {
+            steps 
+            {
                 // Get some code from a GitHub repository
                 git 'https://github.com/jirivasm/Project1'
             }
-               
+        }
+        stage('test')
+        {
+            steps
+            {
+                sh "python3 --version"
+            }
+       }
+    }
+}          
                 
         //         // create and run virtual environment.
         //         sh "python3 -m venv venv"
@@ -29,6 +44,3 @@ pipeline {
         //     steps{
         //         sh "python3 -m flask run --host=0.0.0.0"
         //     }
-         }
-    }
-}
