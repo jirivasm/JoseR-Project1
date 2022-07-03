@@ -3,7 +3,7 @@ pipeline {
 
 
     stages {
-        stage('Build') {
+        stage('preparations') {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/jirivasm/Project1'
