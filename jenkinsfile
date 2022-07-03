@@ -1,7 +1,7 @@
 pipeline {
     agent 
     {
-        docker{image 'python'}
+        docker{image 'python:3.11.03b-slim-bullseye'}
     } 
 
 
