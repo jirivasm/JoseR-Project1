@@ -1,10 +1,5 @@
 pipeline {
-    agent 
-    {
-        docker{image 'python:3.11.03b-slim-bullseye'}
-    } 
-
-
+    
     stages 
     {
         stage('preparations') 
@@ -15,13 +10,7 @@ pipeline {
                 git 'https://github.com/jirivasm/Project1'
             }
         }
-        stage('test')
-        {
-            steps
-            {
-                sh "python3 --version"
-            }
-       }
+
     }
 }          
                 
