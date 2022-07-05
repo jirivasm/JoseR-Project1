@@ -10,19 +10,13 @@ pipeline {
                 git 'https://github.com/jirivasm/Project1'
             }
         }
-        stage('test')
+        stage('versions')
         {
             steps
             {
-
-                sh" cd ~"
-            }
-        }
-        stage('build')
-        {
-            steps
-            {
-                sh "wget -q -0 -172.17.0.3"
+                sh "jenkins --version"
+                sh "docker --version"
+                sh "docker images"
             }
         }
 
