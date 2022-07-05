@@ -12,11 +12,17 @@ pipeline {
         }
         stage('test')
         {
-            sh "ls"
+            steps
+            {
+                sh "ls"
+            }
         }
         stage('build')
         {
-            sh "wget -q -0 -172.17.0.3"
+            steps
+            {
+                sh "wget -q -0 -172.17.0.3"
+            }
         }
 
     }
