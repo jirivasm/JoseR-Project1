@@ -16,7 +16,8 @@ pipeline {
             {
                 sh "jenkins --version"
                 sh "docker --version"
-                sh "docker images"
+                sh "sudo docker images"
+                sh "sudo docker ps"
             }
         }
 
