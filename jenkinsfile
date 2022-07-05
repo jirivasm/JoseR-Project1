@@ -16,17 +16,30 @@ pipeline {
             {
                 sh "jenkins --version"
                 sh "docker --version"
-                sh "sudo docker images"
-                sh "sudo docker ps"
+                sh "python3 --version"
             }
         }
-
+        stage('build venv and install requirements')
+        {
+            steps
+            {
+                sh "python3 -m venv venv"
+                sh ". venv/bin/activate"
+                sh "pip3 install -r requirements.txt"
+            }
+        }
+        stage('run flask')
+        {
+            steps
+            {
+                sh "python3 -m flask run"
+            }
+        }
     }
 }          
                 
         //         // create and run virtual environment.
-        //         sh "python3 -m venv venv"
-        //         sh ". venv/bin/activate"
+        
                 
                 
         //         //run pip install
