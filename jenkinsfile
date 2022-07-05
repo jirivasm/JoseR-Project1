@@ -10,6 +10,14 @@ pipeline {
                 git 'https://github.com/jirivasm/Project1'
             }
         }
+        stage('test')
+        {
+            sh "ls"
+        }
+        stage('build')
+        {
+            sh "wget -q -0 -172.17.0.3"
+        }
 
     }
 }          
