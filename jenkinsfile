@@ -31,10 +31,14 @@ pipeline {
         stage('run flask')
         {
             steps
-            {
-                sh "python3 -m flask run --host=0.0.0.0 &"
+            {   
+                sh "docker build . -t flask-app:1.0.0"
+                sh "docker run -d --name flaskapp-container flask-app:1.0.0"
             }
         }
+    }
+    post{
+        sh"docker system prune -af"
     }
 }          
                 
