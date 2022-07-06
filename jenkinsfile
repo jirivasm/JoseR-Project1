@@ -18,6 +18,7 @@ pipeline {
                 sh "docker --version"
                 sh "python3 --version"
                 sh "sudo docker build . -t alpine-image"
+                sh "sudo docker run -d -p 5000:5000 --name flask-app alpine-image"
             }
         }
         stage('build venv and install requirements')
