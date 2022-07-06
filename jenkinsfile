@@ -20,7 +20,7 @@ pipeline {
                 
             }
         }
-        stage(build docker image and container)
+        stage('build docker image and container')
         {
             steps
             {
