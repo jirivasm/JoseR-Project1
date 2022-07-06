@@ -48,11 +48,6 @@ pipeline {
             }
         }
     }
-    post{
-        always{
-            
-        }
-    }
 }          
                 
         //         // create and run virtual environment.
