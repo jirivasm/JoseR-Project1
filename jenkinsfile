@@ -36,10 +36,12 @@ pipeline {
                 sh "docker run -d --name flaskapp-container flask-app:1.0.0"
             }
         }
+        post
+        {
+            sh"docker system prune -af"
+        }
     }
-    post{
-        sh"docker system prune -af"
-    }
+    
 }          
                 
         //         // create and run virtual environment.
