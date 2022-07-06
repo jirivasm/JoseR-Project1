@@ -31,7 +31,8 @@ pipeline {
         stage('build image and run container')
         {
             steps
-            {   sh " docker system prune -af"
+            {   
+                sh " docker system prune -af"
                 sh " docker build . -t flask-app:1.0.0"
                 sh " docker run -d --name flaskapp-container flask-app:1.0.0"
             }
