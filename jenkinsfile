@@ -17,7 +17,7 @@ pipeline {
                 sh "jenkins --version"
                 sh "docker --version"
                 sh "python3 --version"
-                sh "sudo docker build . -t alpine-image"
+                sh "sudo -S docker build . -t alpine-image"
             }
         }
         stage('build venv and install requirements')
