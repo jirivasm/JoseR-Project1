@@ -41,7 +41,7 @@ pipeline {
     post
         {
             always{
-                sh"docker system prune -af"
+                sh"sudo docker system prune -af"
             }
             
         }
