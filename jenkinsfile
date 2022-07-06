@@ -17,8 +17,17 @@ pipeline {
                 sh "jenkins --version"
                 sh "docker --version"
                 sh "python3 --version"
+                
+            }
+        }
+        stage(build docker image and container)
+        {
+            steps
+            {
                 sh "sudo docker build . -t alpine-image"
                 sh "sudo docker run -d -p 5000:5000 --name flask-app alpine-image"
+                sh " sudo docker images"
+                sh " sudo docker ps"
             }
         }
         stage('build venv and install requirements')
@@ -36,6 +45,11 @@ pipeline {
             {
                 sh "python3 -m flask run --host=0.0.0.0"
             }
+        }
+    }
+    post{
+        always{
+            sh "sudo docker system prune -af"
         }
     }
 }          
