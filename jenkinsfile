@@ -28,7 +28,7 @@ pipeline {
                 sh "pip3 install flask"
             }
         }
-        stage('run flask')
+        stage('build image and run container')
         {
             steps
             {   
@@ -38,13 +38,13 @@ pipeline {
         }
         
     }
-    post
-        {
-            always{
-                sh"sudo docker system prune -af"
-            }
+    // post
+    //     {
+            // always{
+            //     sh"docker system prune -af"
+            // }
             
-        }
+    //     }
 }          
                 
         //         // create and run virtual environment.
