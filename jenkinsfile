@@ -33,7 +33,7 @@ pipeline {
                 sh "sudo docker images"
                 withCredentials([string(credentialsId: '609f5c22-8df4-44b4-b9cf-fb3d9e2a1d55', variable: 'dockerhubpass')])
                 {
-                    sh "sudo docker login -u jirivasm -p ${docdockerhubpass}"
+                    sh "sudo docker login -u jirivasm -p ${dockerhubpass}"
                 }
                 
                  sh "sudo docker push jirivasm/flaskapp:V1.0"
