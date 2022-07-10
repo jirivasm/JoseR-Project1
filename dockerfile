@@ -1,9 +1,9 @@
-FROM alpine:latest
 
-RUN apk update
-RUN apk add python3 py3-pip py3-flask
-RUN mkdir /app
+FROM python:3.10.5-slim-bullseye
+WORKDIR /flask-app
+COPY ./requirements.txt /flask-app/requirements.txt
+RUN pip install -r requirements.txt
 
-COPY ./app.py /app/app.py
+COPY . /flask-app
 
-CMD flask run --host0.0.0.0
+CMD ["flask", "run", "--host=0.0.0.0"]
