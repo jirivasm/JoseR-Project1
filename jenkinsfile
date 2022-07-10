@@ -31,10 +31,11 @@ pipeline {
                 //sh "sudo docker run -d -p 5000:5000 --name flask-app alpine-image"
                 sh "sudo docker ps"
                 sh "sudo docker images"
-
-                withCredentials([string(credentialsId: '8bc7362d-d9a3-451a-aa3e-522009293e82', variable: 'dockerpass')]) {
+                withCredentials([string(credentialsId: '609f5c22-8df4-44b4-b9cf-fb3d9e2a1d55', variable: 'dockerhubpass')])
+                {
                     sh 'sudo docker login -u jirivasm -p ${dockerpass} docker.io'
-                 }
+                }
+                
                  sh "sudo docker push jirivasm/flaskapp:V1.0"
             }
         
