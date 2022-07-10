@@ -7,7 +7,7 @@ pipeline {
             steps 
             {
                 // Get some code from a GitHub repository
-                git 'https://github.com/jirivasm/Project1'
+                git 'https://github.com/jirivasm/JoseR-project1'
                 sh "sudo docker system prune -af"
             }
         }
